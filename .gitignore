@@ -46,8 +46,7 @@ publish/
 *.mdf
 *.ldf
 *.sqlite
-*.sqlite3
-# *.db should not be commit, but it will for better setup after cloning the repo
+*.sqlite3*.db 
 
 # Ignore Resharper files
 _ReSharper*/
