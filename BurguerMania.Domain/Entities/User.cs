@@ -2,7 +2,7 @@ using BurguerMania.Domain.Common;
 
 namespace BurguerMania.Domain.Entities
 {
-    public class User : BaseEntity<Guid>
+    public class User : BaseEntity<GuidKey>
     {
         public string Name { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;

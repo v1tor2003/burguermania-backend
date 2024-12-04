@@ -1,6 +1,7 @@
 using BurguerMania.Domain.Entities;
 using BurguerMania.Infrastructure.Seed;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace BurguerMania.Infrastructure.Context
 {
@@ -18,15 +19,14 @@ namespace BurguerMania.Infrastructure.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseLazyLoadingProxies();
+            optionsBuilder.ConfigureWarnings(warnings => warnings.Ignore(RelationalEventId.PendingModelChangesWarning));
             base.OnConfiguring(optionsBuilder);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ConfigureCategoryProductsRelationship();
-            modelBuilder.ConfigureOrdersProductsRelationship();
-            modelBuilder.ConfigureStatusOrdersRelationship();
-            modelBuilder.ConfigureUserOrdersRelationship();
+            modelBuilder.ConfigureKeys();
+            modelBuilder.ConfigureRelationships();
 
             Seeder.SeedAll(modelBuilder);
 

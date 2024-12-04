@@ -3,15 +3,15 @@ using BurguerMania.Domain.Common;
 
 namespace BurguerMania.Domain.Entities
 {
-    public class Order : BaseEntity<int>
+    public class Order : BaseEntity<IntKey>
     {
         public decimal Value { get; set; }
-        public int StatusId { get; set; }
-        public Guid UserId { get; set; }
+        public IntKey StatusId { get; set; }
+        public GuidKey UserId { get; set; }
         [ForeignKey("StatusId")]
-        public virtual required Status Status { get; set; }
+        public virtual Status Status { get; set; } = null!;
         [ForeignKey("UserId")]
-        public virtual required User User { get; set; }
-        public virtual ICollection<Product> Products { get; set; } = [];
+        public virtual User User { get; set; } = null!;
+        public virtual ICollection<OrderProduct> OrderProducts { get; set; } = [];
     }   
 }
