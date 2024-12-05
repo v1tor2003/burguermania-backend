@@ -53,42 +53,42 @@ namespace BurguerMania.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTimeOffset(new DateTime(2024, 12, 4, 12, 43, 7, 477, DateTimeKind.Unspecified).AddTicks(9076), new TimeSpan(0, 0, 0, 0, 0)),
-                            Description = "",
+                            CreatedAt = new DateTimeOffset(new DateTime(2024, 12, 5, 2, 50, 13, 345, DateTimeKind.Unspecified).AddTicks(1969), new TimeSpan(0, 0, 0, 0, 0)),
+                            Description = "Descricao de Vegano",
                             Name = "Vegano",
-                            PathImage = ""
+                            PathImage = "Uploads/Images/burguer.png"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTimeOffset(new DateTime(2024, 12, 4, 12, 43, 7, 477, DateTimeKind.Unspecified).AddTicks(9368), new TimeSpan(0, 0, 0, 0, 0)),
-                            Description = "",
+                            CreatedAt = new DateTimeOffset(new DateTime(2024, 12, 5, 2, 50, 13, 345, DateTimeKind.Unspecified).AddTicks(2810), new TimeSpan(0, 0, 0, 0, 0)),
+                            Description = "Descricao de Classico",
                             Name = "Clássico",
-                            PathImage = ""
+                            PathImage = "Uploads/Images/burguer.png"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTimeOffset(new DateTime(2024, 12, 4, 12, 43, 7, 477, DateTimeKind.Unspecified).AddTicks(9370), new TimeSpan(0, 0, 0, 0, 0)),
-                            Description = "",
+                            CreatedAt = new DateTimeOffset(new DateTime(2024, 12, 5, 2, 50, 13, 345, DateTimeKind.Unspecified).AddTicks(2813), new TimeSpan(0, 0, 0, 0, 0)),
+                            Description = "Descricao  de Premium",
                             Name = "Premium",
-                            PathImage = ""
+                            PathImage = "Uploads/Images/burguer.png"
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTimeOffset(new DateTime(2024, 12, 4, 12, 43, 7, 477, DateTimeKind.Unspecified).AddTicks(9371), new TimeSpan(0, 0, 0, 0, 0)),
-                            Description = "",
+                            CreatedAt = new DateTimeOffset(new DateTime(2024, 12, 5, 2, 50, 13, 345, DateTimeKind.Unspecified).AddTicks(2814), new TimeSpan(0, 0, 0, 0, 0)),
+                            Description = "Descricao de Frango",
                             Name = "Frango",
-                            PathImage = ""
+                            PathImage = "Uploads/Images/burguer.png"
                         },
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTimeOffset(new DateTime(2024, 12, 4, 12, 43, 7, 477, DateTimeKind.Unspecified).AddTicks(9405), new TimeSpan(0, 0, 0, 0, 0)),
-                            Description = "",
+                            CreatedAt = new DateTimeOffset(new DateTime(2024, 12, 5, 2, 50, 13, 345, DateTimeKind.Unspecified).AddTicks(2815), new TimeSpan(0, 0, 0, 0, 0)),
+                            Description = "Descricao de Peixe",
                             Name = "Peixe",
-                            PathImage = ""
+                            PathImage = "Uploads/Images/burguer.png"
                         });
                 });
 
@@ -101,6 +101,13 @@ namespace BurguerMania.Infrastructure.Migrations
                     b.Property<DateTimeOffset>("CreatedAt")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Observation")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("StatusId")
                         .HasColumnType("INTEGER");
 
@@ -108,9 +115,6 @@ namespace BurguerMania.Infrastructure.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<Guid>("UserId")
-                        .HasColumnType("TEXT");
-
-                    b.Property<decimal>("Value")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
@@ -125,10 +129,11 @@ namespace BurguerMania.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTimeOffset(new DateTime(2024, 12, 4, 12, 43, 7, 479, DateTimeKind.Unspecified).AddTicks(49), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2024, 12, 5, 2, 50, 13, 346, DateTimeKind.Unspecified).AddTicks(4136), new TimeSpan(0, 0, 0, 0, 0)),
+                            Observation = "Alguma observacao",
+                            Quantity = 0,
                             StatusId = 1,
-                            UserId = new Guid("8d401fa8-8555-4f89-8ced-51f2101b3ab7"),
-                            Value = 52.50m
+                            UserId = new Guid("b3143bd0-26cc-4c13-a16e-6cf409265dc7")
                         });
                 });
 
@@ -210,10 +215,10 @@ namespace BurguerMania.Infrastructure.Migrations
                             Id = 1,
                             BaseDescription = "Pão vegano, hambúrguer de grão-de-bico, alface, tomate, fatias de manga, molho especial",
                             CategoryId = 1,
-                            CreatedAt = new DateTimeOffset(new DateTime(2024, 12, 4, 12, 43, 7, 478, DateTimeKind.Unspecified).AddTicks(4027), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2024, 12, 5, 2, 50, 13, 345, DateTimeKind.Unspecified).AddTicks(7682), new TimeSpan(0, 0, 0, 0, 0)),
                             FullDescription = "Uma explosão de sabores naturais! O X-Fruta combina o frescor das frutas com a crocância do hambúrguer vegano de grão-de-bico, criando uma experiência saudável e deliciosa.",
                             Name = "X-Fruta",
-                            PathImage = "",
+                            PathImage = "Uploads/Images/burguer.png",
                             Price = 15m
                         },
                         new
@@ -221,10 +226,10 @@ namespace BurguerMania.Infrastructure.Migrations
                             Id = 2,
                             BaseDescription = "Pão com gergelim, hambúrguer de carne bovina, queijo cheddar, alface, tomate, ketchup e maionese",
                             CategoryId = 2,
-                            CreatedAt = new DateTimeOffset(new DateTime(2024, 12, 4, 12, 43, 7, 478, DateTimeKind.Unspecified).AddTicks(5293), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2024, 12, 5, 2, 50, 13, 345, DateTimeKind.Unspecified).AddTicks(9245), new TimeSpan(0, 0, 0, 0, 0)),
                             FullDescription = "O clássico que nunca sai de moda! Um hambúrguer saboroso e equilibrado, perfeito para quem busca o tradicional com um toque especial.",
                             Name = "X-Tradicional",
-                            PathImage = "",
+                            PathImage = "Uploads/Images/burguer.png",
                             Price = 12.50m
                         },
                         new
@@ -232,10 +237,10 @@ namespace BurguerMania.Infrastructure.Migrations
                             Id = 3,
                             BaseDescription = "Pão brioche, hambúrguer artesanal, queijo gouda, fatias de bacon crocante, cebola caramelizada, rúcula e molho barbecue",
                             CategoryId = 3,
-                            CreatedAt = new DateTimeOffset(new DateTime(2024, 12, 4, 12, 43, 7, 478, DateTimeKind.Unspecified).AddTicks(5316), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2024, 12, 5, 2, 50, 13, 345, DateTimeKind.Unspecified).AddTicks(9270), new TimeSpan(0, 0, 0, 0, 0)),
                             FullDescription = "Uma experiência gourmet com bacon crocante e queijo gouda. O X-Bacon Premium é perfeito para os amantes de um sabor robusto e marcante.",
                             Name = "X-Bacon Premium",
-                            PathImage = "",
+                            PathImage = "Uploads/Images/burguer.png",
                             Price = 25m
                         },
                         new
@@ -243,10 +248,10 @@ namespace BurguerMania.Infrastructure.Migrations
                             Id = 4,
                             BaseDescription = "Pão com gergelim, peito de frango empanado, queijo prato, alface americana, maionese temperada",
                             CategoryId = 4,
-                            CreatedAt = new DateTimeOffset(new DateTime(2024, 12, 4, 12, 43, 7, 478, DateTimeKind.Unspecified).AddTicks(5318), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2024, 12, 5, 2, 50, 13, 345, DateTimeKind.Unspecified).AddTicks(9272), new TimeSpan(0, 0, 0, 0, 0)),
                             FullDescription = "Delicioso e leve, o X-Frango Crocante combina um frango empanado crocante com a suavidade da maionese temperada.",
                             Name = "X-Frango Crocante",
-                            PathImage = "",
+                            PathImage = "Uploads/Images/burguer.png",
                             Price = 18m
                         },
                         new
@@ -254,10 +259,10 @@ namespace BurguerMania.Infrastructure.Migrations
                             Id = 5,
                             BaseDescription = "Pão integral, hambúrguer de salmão grelhado, cream cheese, alface e molho de dill",
                             CategoryId = 5,
-                            CreatedAt = new DateTimeOffset(new DateTime(2024, 12, 4, 12, 43, 7, 478, DateTimeKind.Unspecified).AddTicks(5320), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2024, 12, 5, 2, 50, 13, 345, DateTimeKind.Unspecified).AddTicks(9274), new TimeSpan(0, 0, 0, 0, 0)),
                             FullDescription = "Elegante e saudável, o X-Salmão traz um toque de sofisticação com salmão grelhado e um molho de dill único.",
                             Name = "X-Salmão",
-                            PathImage = "",
+                            PathImage = "Uploads/Images/burguer.png",
                             Price = 28m
                         },
                         new
@@ -265,10 +270,10 @@ namespace BurguerMania.Infrastructure.Migrations
                             Id = 6,
                             BaseDescription = "Pão vegano, tofu grelhado, cogumelos salteados, rúcula, molho de tahine",
                             CategoryId = 1,
-                            CreatedAt = new DateTimeOffset(new DateTime(2024, 12, 4, 12, 43, 7, 478, DateTimeKind.Unspecified).AddTicks(5321), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2024, 12, 5, 2, 50, 13, 345, DateTimeKind.Unspecified).AddTicks(9275), new TimeSpan(0, 0, 0, 0, 0)),
                             FullDescription = "O X-Tofu Especial é uma escolha refinada e saudável, com tofu grelhado e cogumelos que encantam os paladares mais exigentes.",
                             Name = "X-Tofu Especial",
-                            PathImage = "",
+                            PathImage = "Uploads/Images/burguer.png",
                             Price = 20m
                         },
                         new
@@ -276,10 +281,10 @@ namespace BurguerMania.Infrastructure.Migrations
                             Id = 7,
                             BaseDescription = "Pão de hambúrguer, hambúrguer de carne bovina, queijo cheddar duplo, molho especial",
                             CategoryId = 2,
-                            CreatedAt = new DateTimeOffset(new DateTime(2024, 12, 4, 12, 43, 7, 478, DateTimeKind.Unspecified).AddTicks(5323), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2024, 12, 5, 2, 50, 13, 345, DateTimeKind.Unspecified).AddTicks(9276), new TimeSpan(0, 0, 0, 0, 0)),
                             FullDescription = "Para os fãs de queijo, o X-Queijo Duplo é uma explosão de sabor com camadas generosas de cheddar e um molho irresistível.",
                             Name = "X-Queijo Duplo",
-                            PathImage = "",
+                            PathImage = "Uploads/Images/burguer.png",
                             Price = 16m
                         },
                         new
@@ -287,10 +292,10 @@ namespace BurguerMania.Infrastructure.Migrations
                             Id = 8,
                             BaseDescription = "Pão ciabatta, hambúrguer de cordeiro, queijo feta, tomate seco, rúcula e molho de hortelã",
                             CategoryId = 3,
-                            CreatedAt = new DateTimeOffset(new DateTime(2024, 12, 4, 12, 43, 7, 478, DateTimeKind.Unspecified).AddTicks(5325), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2024, 12, 5, 2, 50, 13, 345, DateTimeKind.Unspecified).AddTicks(9278), new TimeSpan(0, 0, 0, 0, 0)),
                             FullDescription = "Uma criação exclusiva com cordeiro suculento, queijo feta e um toque refrescante de hortelã para uma experiência inesquecível.",
                             Name = "X-Cordeiro Gourmet",
-                            PathImage = "",
+                            PathImage = "Uploads/Images/burguer.png",
                             Price = 30m
                         });
                 });
@@ -319,19 +324,19 @@ namespace BurguerMania.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTimeOffset(new DateTime(2024, 12, 4, 12, 43, 7, 477, DateTimeKind.Unspecified).AddTicks(1826), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2024, 12, 5, 2, 50, 13, 344, DateTimeKind.Unspecified).AddTicks(4294), new TimeSpan(0, 0, 0, 0, 0)),
                             Name = "Pendente"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTimeOffset(new DateTime(2024, 12, 4, 12, 43, 7, 477, DateTimeKind.Unspecified).AddTicks(2567), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2024, 12, 5, 2, 50, 13, 344, DateTimeKind.Unspecified).AddTicks(5163), new TimeSpan(0, 0, 0, 0, 0)),
                             Name = "Em progresso"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTimeOffset(new DateTime(2024, 12, 4, 12, 43, 7, 477, DateTimeKind.Unspecified).AddTicks(2569), new TimeSpan(0, 0, 0, 0, 0)),
+                            CreatedAt = new DateTimeOffset(new DateTime(2024, 12, 5, 2, 50, 13, 344, DateTimeKind.Unspecified).AddTicks(5165), new TimeSpan(0, 0, 0, 0, 0)),
                             Name = "Completo"
                         });
                 });
@@ -367,8 +372,8 @@ namespace BurguerMania.Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("8d401fa8-8555-4f89-8ced-51f2101b3ab7"),
-                            CreatedAt = new DateTimeOffset(new DateTime(2024, 12, 4, 12, 43, 7, 478, DateTimeKind.Unspecified).AddTicks(8521), new TimeSpan(0, 0, 0, 0, 0)),
+                            Id = new Guid("b3143bd0-26cc-4c13-a16e-6cf409265dc7"),
+                            CreatedAt = new DateTimeOffset(new DateTime(2024, 12, 5, 2, 50, 13, 346, DateTimeKind.Unspecified).AddTicks(2493), new TimeSpan(0, 0, 0, 0, 0)),
                             Email = "vitor@email.com",
                             Name = "Vitor Pires",
                             Password = "password"

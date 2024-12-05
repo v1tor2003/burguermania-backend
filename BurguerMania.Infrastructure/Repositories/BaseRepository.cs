@@ -1,3 +1,4 @@
+using System.Linq.Expressions;
 using BurguerMania.Domain.Common;
 using BurguerMania.Domain.Interfaces;
 using BurguerMania.Infrastructure.Context;
@@ -38,5 +39,20 @@ namespace BurguerMania.Infrastructure.Repositories
             return await _context.Set<T>().ToListAsync();
         }
         public async Task SaveAsync() => await _context.SaveChangesAsync();
+
+        public IQueryable<T> BuildQueryWithIncludes(params Expression<Func<T, object>>[] includes)
+        {
+            IQueryable<T> query = _context.Set<T>().AsQueryable();
+            
+            foreach(var include in includes)
+                query = query.Include(include);
+            
+            return query;
+        }
+
+        public async Task<T?> GetByIdAsync(PK id, params Expression<Func<T, object>>[] includes)
+        {
+            return await BuildQueryWithIncludes(includes).FirstOrDefaultAsync(e => EF.Property<PK>(e, "Id").Equals(id));
+        }
     }
 }

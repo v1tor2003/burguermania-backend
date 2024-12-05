@@ -10,6 +10,8 @@ namespace BurguerMania.Domain.Interfaces
         Task UpdatedAsync(T entity);
         Task DeleteAsync(T entity);
         Task<T?> GetByIdAsync(PK id);
+        Task<TRes?> GetByIdAsync<TRes>(PK id) where TRes : BaseDto;
         Task<IEnumerable<T>> GetAllAsync();
+        Task<IEnumerable<TRes>> GetAllAsync<TRes>() where TRes : BaseDto;
     }
 }

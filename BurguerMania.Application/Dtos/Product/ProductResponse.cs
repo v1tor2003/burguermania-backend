@@ -4,6 +4,7 @@ namespace BurguerMania.Application.Dtos.Product
 {
     public sealed record ProductResponse : BaseDto
     {
+        public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
         public string BaseDescription { get; set; } = string.Empty;
         public string FullDescription { get; set; } = string.Empty;

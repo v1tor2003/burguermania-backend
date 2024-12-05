@@ -5,7 +5,8 @@ namespace BurguerMania.Domain.Entities
 {
     public class Order : BaseEntity<IntKey>
     {
-        public decimal Value { get; set; }
+        public int Quantity { get; set; }
+        public string Observation { get; set; } = string.Empty;
         public IntKey StatusId { get; set; }
         public GuidKey UserId { get; set; }
         [ForeignKey("StatusId")]

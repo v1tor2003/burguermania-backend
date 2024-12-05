@@ -7,14 +7,14 @@ namespace BurguerMania.Application.Validators
     {
         public OrderValidator()
         {
-            RuleFor(o => o.Value)
-                .NotEmpty().WithMessage("Order.Value is required.");
+            RuleFor(o => o.ProductId)
+                .NotEmpty().WithMessage("Order.ProductId is required.");
 
             RuleFor(o => o.UserId)
                 .NotNull().WithMessage("Order.UserId must be specified.");
 
-            RuleFor(o => o.StatusId)
-                .NotNull().WithMessage("Order.StatusId must be specified.");
+            RuleFor(o => o.Quantity)
+                .NotEmpty().WithMessage("Order.Quantity must be specified.");
         }
     }
 }

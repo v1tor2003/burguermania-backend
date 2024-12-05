@@ -30,21 +30,32 @@ namespace BurguerMania.Presentation.Middlewares
         {
             _logger.LogError(exception, "An error occurred while processing the request.");
 
-            var code = HttpStatusCode.InternalServerError; // 500 if unexpected
+            var statusCode = HttpStatusCode.InternalServerError; 
 
-            var result = JsonSerializer.Serialize(new
+            var errorDetails = new
             {
+                timestamp = DateTime.UtcNow,
+                status = (int)statusCode,
                 error = new
                 {
-                    message = exception.Message,
-                    details = exception.InnerException?.Message
+                    code = "INTERNAL_SERVER_ERROR",
+                    message = "An unexpected error occurred. Please try again later.",
+                    details = IsDevelopment() ? exception.Message : null,
+                    innerDetails = IsDevelopment() ? exception.InnerException?.Message : null
                 }
-            });
+            };
+
+            var result = JsonSerializer.Serialize(errorDetails);
 
             context.Response.ContentType = "application/json";
-            context.Response.StatusCode = (int)code;
+            context.Response.StatusCode = (int)statusCode;
 
             return context.Response.WriteAsync(result);
+        }
+
+        private static bool IsDevelopment()
+        {
+            return Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Development";
         }
     }
 }

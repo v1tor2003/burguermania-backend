@@ -2,6 +2,7 @@ using FluentValidation;
 using System.Reflection;
 using BurguerMania.Application.Validators;
 using Microsoft.Extensions.DependencyInjection;
+using BurguerMania.Domain.Interfaces;
 
 namespace BurguerMania.Application
 {

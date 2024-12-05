@@ -12,18 +12,22 @@ namespace BurguerMania.Application.Mapping
         public MappingProfile()
         {
             CreateMap<UserRequest, User>();
-            CreateMap<User, UserResponse>();
+            CreateMap<User, UserResponse>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id.Value));
 
             CreateMap<OrderRequest, Order>();
-            CreateMap<Order, OrderResponse>();
+            CreateMap<Order, OrderResponse>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id.Value));
 
             CreateMap<ProductRequest, Product>()
                 .ForMember(dest => dest.PathImage, opt => opt.Ignore());
-            CreateMap<Product, ProductResponse>();
+            CreateMap<Product, ProductResponse>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id.Value));
 
             CreateMap<CategoryRequest, Category>()
                 .ForMember(dest => dest.PathImage, opt => opt.Ignore());
-            CreateMap<Category, CategoryResponse>();
+            CreateMap<Category, CategoryResponse>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id.Value));
         }
     }
 }

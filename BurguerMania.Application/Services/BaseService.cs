@@ -44,5 +44,19 @@ namespace BurguerMania.Application.Services
         {
             return await _repository.GetAllAsync();
         }
+
+        public async Task<IEnumerable<TRes>> GetAllAsync<TRes>() where TRes : BaseDto
+        {
+            var all = await _repository.GetAllAsync();
+
+            return all.Select(_mapper.Map<TRes>);
+        }
+
+        public async Task<TRes?> GetByIdAsync<TRes>(PK id) where TRes : BaseDto
+        {
+            var entity = await GetByIdAsync(id);
+            
+            return _mapper.Map<TRes>(entity);
+        }
     }
 }
