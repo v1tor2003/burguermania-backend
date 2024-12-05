@@ -97,7 +97,7 @@ The API will be available at `http://localhost:5038` by default (or `http://loca
 Use tools like [Postman](https://www.postman.com/) or [Swagger UI](https://swagger.io/tools/swagger-ui/) to test API endpoints. Swagger is set up by default and can be accessed at:
 
 ```
-http://localhost:5000/swagger
+http://localhost:5038/swagger
 ```
 
 ## Project Structure Overview
